@@ -7,6 +7,6 @@ def softmax(x):
     For 2D, compute row-wise softmax.
     """
     # Write code here
-    e = np.exp(x - np.max(x))
-    is_two_dim = (e.ndim == 2)
-    return e / np.sum(e, axis=1*is_two_dim, keepdims=is_two_dim)
+    d = np.ndim(x) == 2
+    e = np.exp(np.asarray(x) - np.max(x, axis=1 * d, keepdims=d))
+    return e / np.sum(e, axis=1 * d, keepdims=(e.ndim == 2))
